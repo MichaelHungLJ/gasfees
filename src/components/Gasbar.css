@@ -1,0 +1,20 @@
+.gas-container {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  width: 1200px;
+  justify-content: flex-start;
+}
+
+.gas-container .chain-name {
+  height: 40px;
+}
+
+.gas-container .chain-name h3 {
+  font-size: 20px;
+}
+
+.gas-container .chain-gas {
+  height: 120px;
+  margin-top: 20px;
+}

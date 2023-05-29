@@ -1,11 +1,15 @@
-import { useState } from "react";
+import React from "react";
+import { Router, Route, Link, Routes } from "react-router-dom";
 import "./App.css";
+import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
-    <>
-      <h1>Main Page</h1>
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+    </Routes>
   );
 }
 

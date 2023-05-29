@@ -1,0 +1,90 @@
+.sidebar {
+  box-sizing: border-box;
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #03045e;
+}
+
+.sidebar header .logo {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.sidebar header .logo img {
+  height: 40px;
+  width: 40px;
+  border-radius: 5px;
+}
+
+.sidebar header .logo h1 {
+  margin: 0 0 0 10px;
+  width: 200px;
+  height: 40px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  color: bisque;
+}
+
+.sidebar .body {
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-start; */
+  /* align-content: space-around; */
+  align-items: center;
+}
+
+.sidebar .body .body-item {
+  box-sizing: border-box;
+  margin: 10px 0px 10px 0px;
+  height: 60px;
+  width: 220px;
+  display: flex;
+  align-items: center;
+  color: bisque;
+  padding-left: 10px;
+}
+
+.sidebar .body .body-item:hover {
+  text-decoration: underline;
+}
+
+.sidebar .body .body-item h3 {
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.sidebar .footer {
+  height: 30vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: bisque;
+  box-sizing: border-box;
+}
+
+.sidebar .footer .footer-item {
+  display: flex;
+  margin: 10px 0px;
+  align-items: center;
+  justify-content: flex-start;
+  height: 60px;
+  width: 220px;
+}
+
+.sidebar .footer .footer-item:hover {
+  text-decoration: underline;
+}
+
+.sidebar .footer .footer-item h3 {
+  font-size: 18px;
+  margin-left: 10px;
+}
