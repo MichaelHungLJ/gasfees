@@ -13,7 +13,7 @@ export default function Dashboard() {
           <span>Currency box here</span>
         </div>
         <div className="chain">
-          <Gasbar />
+          <Gasbar chain="ETH" />
         </div>
       </div>
     </div>

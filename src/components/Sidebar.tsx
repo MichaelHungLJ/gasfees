@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Sidebar.css";
 import ethlogo from "../assets/eth_logo.png";
 import HomeIcon from "@mui/icons-material/Home";
@@ -17,15 +18,19 @@ export default function Sidebar() {
       </header>
 
       <div className="body">
-        <div className="body-item">
-          <HomeIcon />
-          <h3>Home</h3>
-        </div>
+        <Link to="/dashboard">
+          <div className="body-item">
+            <HomeIcon />
+            <h3>Home</h3>
+          </div>
+        </Link>
 
-        <div className="body-item">
-          <LocalGasStationIcon />
-          <h3>Gas Fees</h3>
-        </div>
+        <Link to="/addchain">
+          <div className="body-item">
+            <LocalGasStationIcon />
+            <h3>Gas Fees</h3>
+          </div>
+        </Link>
       </div>
 
       <div className="footer">

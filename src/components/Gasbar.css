@@ -1,20 +1,91 @@
 .gas-container {
+  box-sizing: border-box;
+  border: 1px solid red;
+  height: 300px;
+  width: 1100px;
   display: flex;
   flex-direction: column;
-  height: 200px;
-  width: 1200px;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 10px;
 }
 
 .gas-container .chain-name {
-  height: 40px;
-}
-
-.gas-container .chain-name h3 {
-  font-size: 20px;
+  box-sizing: border-box;
+  border: 1px solid red;
+  height: 30px;
+  width: 1000px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 15px;
+  margin-top: 20px;
 }
 
 .gas-container .chain-gas {
-  height: 120px;
-  margin-top: 20px;
+  box-sizing: border-box;
+  border: 1px solid green;
+  height: 200px;
+  width: 1000px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.gas-container .chain-gas .gas-price-box {
+  border: 1px solid red;
+  box-sizing: border-box;
+  height: 150px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gas-price-box .speed {
+  border: 1px solid red;
+  box-sizing: border-box;
+  height: 20px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.gas-price-box .gwei {
+  border: 1px solid red;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 150px;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.gas-price-box .base-gas {
+  border: 1px solid red;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  width: 150px;
+  font-size: 10px;
+}
+
+.gas-price-box .price {
+  border: 1px solid red;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  width: 150px;
+  font-size: 10px;
 }

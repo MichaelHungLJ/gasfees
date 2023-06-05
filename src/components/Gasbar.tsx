@@ -1,31 +1,55 @@
 import React, { useEffect, useState } from "react";
-import { getFeeData } from "../API/getFeeData";
-import { getGasPrice } from "../API/getGasPrice";
+import { getMaticGasPrice } from "../API/getMaticGasPrice";
+import { getEthGasPrice } from "../API/getEthGasPrice";
+import { getBnbGasPrice } from "../API/getBnbGasPrice";
 import "./Gasbar.css";
+import { gasHelper } from "../API/gasHelper";
 
-export default function Gasbar() {
-  const [feeData, setFeeData] = useState<object | undefined>(undefined);
+type GasbarProps = {
+  chain: string;
+};
+
+export default function Gasbar({ chain }: GasbarProps) {
+  const [gasPrice, setGasPrice] = useState<{ name: string; gas: number }[]>([]);
+  const [chainName, setChainName] = useState<string>("");
 
   useEffect(() => {
     const callFeeDataAPI = async () => {
       try {
-        const data: object = await getFeeData();
-        setFeeData(data);
+        let data;
+        if (chain === "ETH") {
+          data = await getEthGasPrice();
+          setChainName("Ethereum");
+        } else if (chain === "MATIC") {
+          data = await getMaticGasPrice();
+          setChainName("Polygon");
+        } else if (chain === "BNB") {
+          data = await getBnbGasPrice();
+          setChainName("Binance Smart Chain");
+        }
+        const arr = await gasHelper(data);
+
+        setGasPrice(arr);
       } catch (error) {
         console.error(error);
       }
     };
 
     callFeeDataAPI();
-  }, [console.log(feeData)]);
+  }, []);
 
   return (
     <div className="gas-container">
       <div className="chain-name">
-        <h3>Ethereum</h3>
+        <span>{chainName}</span>
       </div>
       <div className="chain-gas">
-        <h3>Insert gas chain here</h3>
+        {gasPrice?.map((element) => (
+          <div className="gas-price-box" key={element.name}>
+            <span className="speed">{element.name}</span>
+            <span className="gwei">{element.gas}</span>
+          </div>
+        ))}
       </div>
     </div>
   );
