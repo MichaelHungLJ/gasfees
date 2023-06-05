@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Sidebar from "../components/Sidebar";
+import MUIBasicSelect from "../components/MUIBasicSelect";
 
 export default function AddChain() {
-  return <div>Add Chain Component</div>;
+  const [chain, setChain] = useState<string>("");
+
+  const handleDataFromChild = (data: string) => {
+    setChain(data);
+  };
+
+  return (
+    <div>
+      <MUIBasicSelect chainDataToParent={handleDataFromChild} />
+      Hello {chain}
+    </div>
+  );
 }

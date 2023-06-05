@@ -1,17 +1,23 @@
 import React from "react";
-import { Router, Route, Link, Routes } from "react-router-dom";
+import { Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import AddChain from "./pages/AddChain";
+import Sidebar from "./components/Sidebar";
+import SidebarLayout from "./components/SidebarLayout";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/addchain" element={<AddChain />} />
-    </Routes>
+    <div>
+      <Routes>
+        <Route element={<SidebarLayout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/addchain" element={<AddChain />} />
+        </Route>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </div>
   );
 }
 

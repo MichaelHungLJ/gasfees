@@ -7,7 +7,6 @@ import "./Dashboard.css";
 export default function Dashboard() {
   return (
     <div>
-      <Sidebar />
       <div className="overview">
         <div className="currency">
           <span>Currency box here</span>

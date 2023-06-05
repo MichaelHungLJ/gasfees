@@ -34,10 +34,12 @@ export default function Sidebar() {
       </div>
 
       <div className="footer">
-        <div className="footer-item">
-          <LogoutIcon />
-          <h3>Logout</h3>
-        </div>
+        <Link to="/">
+          <div className="footer-item">
+            <LogoutIcon />
+            <h3>Logout</h3>
+          </div>
+        </Link>
 
         <div className="footer-item">
           <LightModeIcon />

@@ -36,7 +36,14 @@ export default function Gasbar({ chain }: GasbarProps) {
     };
 
     callFeeDataAPI();
-  }, []);
+
+    const interval = setInterval(callFeeDataAPI, 10000);
+
+    // Cleanup the interval when the component unmounts
+    return () => {
+      clearInterval(interval);
+    };
+  }, [chain]);
 
   return (
     <div className="gas-container">
