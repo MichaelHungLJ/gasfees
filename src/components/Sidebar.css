@@ -49,6 +49,7 @@
   align-items: center;
   color: bisque;
   padding-left: 10px;
+  cursor: pointer;
 }
 
 .sidebar .body .body-item:hover {

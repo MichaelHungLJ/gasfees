@@ -7,11 +7,11 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 interface MUIBasicSelectProps {
-  chainDataToParent: (data: string) => void;
+  handleSetAddChain: (data: string) => void;
 }
 
 export default function MUIBasicSelect({
-  chainDataToParent,
+  handleSetAddChain,
 }: MUIBasicSelectProps) {
   const [chain, setChain] = React.useState("");
 
@@ -20,7 +20,7 @@ export default function MUIBasicSelect({
   };
 
   useEffect(() => {
-    chainDataToParent(chain);
+    handleSetAddChain(chain);
   }, [chain]);
 
   return (

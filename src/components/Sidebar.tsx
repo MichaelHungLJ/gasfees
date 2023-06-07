@@ -7,7 +7,11 @@ import LocalGasStationIcon from "@mui/icons-material/LocalGasStation";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import LogoutIcon from "@mui/icons-material/Logout";
 
-export default function Sidebar() {
+interface SidebarLayoutProps {
+  openModal: () => void;
+}
+
+export default function Sidebar({ openModal }: SidebarLayoutProps) {
   return (
     <div className="sidebar">
       <header>
@@ -25,12 +29,10 @@ export default function Sidebar() {
           </div>
         </Link>
 
-        <Link to="/addchain">
-          <div className="body-item">
-            <LocalGasStationIcon />
-            <h3>Gas Fees</h3>
-          </div>
-        </Link>
+        <div className="body-item" onClick={openModal}>
+          <LocalGasStationIcon />
+          <h3>Add Chain</h3>
+        </div>
       </div>
 
       <div className="footer">
