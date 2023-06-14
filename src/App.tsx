@@ -9,6 +9,7 @@ import SidebarLayout from "./components/SidebarLayout";
 
 function App() {
   const [isModalOpen, setModal] = useState<boolean>(false);
+  // Testing git flow from mac side
 
   const setModalOpen = () => {
     setModal(true);
