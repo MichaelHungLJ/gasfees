@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
@@ -21,6 +21,13 @@ interface DashboardProps {
 export default function Dashboard({ modalState, closeModal }: DashboardProps) {
   const [chain, setChain] = useState<string>("");
   const [chainlist, setChainList] = useState<string[]>(["ETH"]);
+
+  useEffect(() => {
+    if (chain === "") return;
+    if (chainlist.includes(chain)) return;
+    const updatedChainList = [...chainlist, chain];
+    setChainList(updatedChainList);
+  }, [chain]);
 
   const handleDataFromChild = (data: string) => {
     setChain(data);
