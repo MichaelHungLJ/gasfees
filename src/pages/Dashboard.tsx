@@ -4,6 +4,12 @@ import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Gasbar from "../components/Gasbar";
 import Modal from "../components/Modal";
+import {
+  DragDropContext,
+  Draggable,
+  Droppable,
+  DropResult,
+} from "react-beautiful-dnd";
 
 import "./Dashboard.css";
 
@@ -14,9 +20,32 @@ interface DashboardProps {
 
 export default function Dashboard({ modalState, closeModal }: DashboardProps) {
   const [chain, setChain] = useState<string>("");
+  const [chainlist, setChainList] = useState<string[]>(["ETH"]);
 
   const handleDataFromChild = (data: string) => {
     setChain(data);
+  };
+
+  const handleDragDrop = (results: DropResult) => {
+    const { source, destination, type } = results;
+
+    if (!destination) return;
+    if (
+      source.droppableId === destination.droppableId &&
+      source.index === destination.index
+    )
+      return;
+
+    if (type === "group") {
+      const reorderedChainList = [...chainlist];
+      const sourceIndex = source.index;
+      const destinationIndex = destination.index;
+
+      const [removedChainList] = reorderedChainList.splice(sourceIndex, 1);
+      reorderedChainList.splice(destinationIndex, 0, removedChainList);
+
+      return setChainList(reorderedChainList);
+    }
   };
 
   return (
@@ -33,7 +62,28 @@ export default function Dashboard({ modalState, closeModal }: DashboardProps) {
           <span>Currency box here</span>
         </div>
         <div className="chain">
-          <Gasbar chain="ETH" />
+          <DragDropContext onDragEnd={handleDragDrop}>
+            <Droppable droppableId="ROOT" type="group">
+              {(provided) => (
+                <div {...provided.droppableProps} ref={provided.innerRef}>
+                  {chainlist.map((chain, index) => (
+                    <Draggable draggableId={chain} key={chain} index={index}>
+                      {(provided) => (
+                        <div
+                          {...provided.dragHandleProps}
+                          {...provided.draggableProps}
+                          ref={provided.innerRef}
+                        >
+                          <Gasbar chain={chain} />
+                        </div>
+                      )}
+                    </Draggable>
+                  ))}
+                  {provided.placeholder}
+                </div>
+              )}
+            </Droppable>
+          </DragDropContext>
         </div>
       </div>
     </div>

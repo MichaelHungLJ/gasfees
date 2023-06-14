@@ -4,7 +4,6 @@ import { useState } from "react";
 import "./App.css";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
-import AddChain from "./pages/AddChain";
 import Sidebar from "./components/Sidebar";
 import SidebarLayout from "./components/SidebarLayout";
 
@@ -29,7 +28,6 @@ function App() {
               <Dashboard modalState={isModalOpen} closeModal={setModalClosed} />
             }
           />
-          <Route path="/addchain" element={<AddChain />} />
         </Route>
         <Route path="/" element={<Home />} />
       </Routes>

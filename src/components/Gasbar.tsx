@@ -4,6 +4,7 @@ import { getEthGasPrice } from "../API/getEthGasPrice";
 import { getBnbGasPrice } from "../API/getBnbGasPrice";
 import "./Gasbar.css";
 import { gasHelper } from "../API/gasHelper";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 type GasbarProps = {
   chain: string;
