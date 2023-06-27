@@ -65,7 +65,6 @@ export default function Dashboard({ modalState, closeModal }: DashboardProps) {
       )}
       <div className="overview">
         <div className="currency">
-          <p>Chain: {chain}</p>
           <span>Currency box here</span>
         </div>
         <div className="chain">
